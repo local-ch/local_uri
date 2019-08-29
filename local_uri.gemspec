@@ -4,7 +4,6 @@ require 'local_uri/version'
 Gem::Specification.new do |s|
   s.name        = 'local_uri'
   s.version     = LocalUri::VERSION
-  s.summary     = 'Gem to simplify rails application configuration with Kubernetes.'
   s.authors     = ['https://github.com/local-ch/local_uri/graphs/contributors']
   s.email       = ['web@localsearch.ch']
   s.homepage    = 'https://github.com/local-ch/local_uri'
