@@ -8,7 +8,6 @@ describe LocalUri::URI do
   end
 
   context 'merge' do
-    
     it 'adds get parameters' do
       expect(subject.query.merge(id: 1).to_s).to eq 'https://local.ch?id=1'
     end
@@ -23,7 +22,6 @@ describe LocalUri::URI do
   end
 
   context 'merge!' do
-    
     it 'changes the original object' do
       subject.query.merge!(id: 1)
       expect(subject.to_s).to eq 'https://local.ch?id=1'
