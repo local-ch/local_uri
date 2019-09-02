@@ -1,7 +1,7 @@
 require 'spec_helper.rb'
 
 describe LocalUri::URI do
-  subject {URI('https://local.ch')}
+  subject { URI('https://local.ch') }
 
   it 'delegates to_s to URI core' do
     expect(subject.to_s).to eq 'https://local.ch'
@@ -43,7 +43,7 @@ describe LocalUri::URI do
     expect(subject.to_s).to eq 'https://local.ch/endpoint'
   end
 
-  it 'delegates path to URI core' do
+  it 'delegates port to URI core' do
     expect(subject.port).to eq 443
   end
 
