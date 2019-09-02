@@ -1,6 +1,8 @@
 require 'active_support/core_ext/module/delegation'
 
 module LocalUri
+  URI_CORE = URI
+
   class URI
 
     delegate(
@@ -16,7 +18,7 @@ module LocalUri
     attr_reader :uri
 
     def initialize(string)
-      @uri = ::URI.parse(string)
+      @uri = URI_CORE.parse(string.to_s)
     end
 
     def dup
