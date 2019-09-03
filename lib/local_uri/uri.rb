@@ -1,22 +1,18 @@
 require 'active_support/core_ext/module/delegation'
 
 module LocalUri
-  class URI
+  URI_CORE = URI
 
-    delegate(
-      :to_s,
-      :scheme,
-      :scheme=,
-      :host,
-      :host=,
-      :path,
-      :path=,
-      to: :uri
-    )
+  class URI < SimpleDelegator
+
     attr_reader :uri
 
     def initialize(string)
-      @uri = ::URI.parse(string)
+      @uri = super(URI_CORE.parse(string.to_s))
+    end
+
+    def empty?
+      @uri.to_s.empty?
     end
 
     def dup
