@@ -1,3 +1,5 @@
+require 'bundler'
+
 Bundler::GemHelper.install_tasks
 # GemInABox changes, that modifies behavior of `rake release`. TO be thrown away, once gem in
 # a box supports a better way got to release a gem
