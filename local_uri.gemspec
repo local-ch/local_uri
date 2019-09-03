@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rack'
 
   s.add_development_dependency 'geminabox'
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rubocop', '~> 0.58.2'
