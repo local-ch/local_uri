@@ -42,6 +42,9 @@ describe LocalUri::URI do
 
     it 'allows to access query data with hash-bracket-notiation' do
       expect(subject.query[:id]).to eq '1'
+    end
+
+    it 'allows to access query data with dig' do
       expect(subject.query.dig(:place, :name)).to eq 'casa'
     end
   end
