@@ -4,6 +4,8 @@ require 'active_support/core_ext/hash/indifferent_access'
 module LocalUri
   class Query
 
+    delegate :[], :dig, to: :parsed_query
+
     def initialize(uri)
       @uri = uri
     end
