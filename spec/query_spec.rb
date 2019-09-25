@@ -19,6 +19,12 @@ describe LocalUri::URI do
         expect(subject.query.merge(id: 2).to_s).to eq 'https://local.ch?id=2'
       end
     end
+
+    context 'empty query params' do
+      it 'does not change the original url' do
+        expect(subject.query.merge({}).to_s).to eq 'https://local.ch'
+      end
+    end
   end
 
   context 'merge!' do
@@ -33,6 +39,12 @@ describe LocalUri::URI do
       it 'changes existing parameters' do
         subject.query.merge!(id: 2)
         expect(subject.to_s).to eq 'https://local.ch?id=2'
+      end
+    end
+
+    context 'empty query params' do
+      it 'does not change the original url' do
+        expect(subject.query.merge({}).to_s).to eq 'https://local.ch'
       end
     end
   end
