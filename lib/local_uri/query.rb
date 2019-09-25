@@ -16,13 +16,13 @@ module LocalUri
 
     def merge(*args, &block)
       @uri.dup.tap do |uri|
-        uri.query_string = Rack::Utils.build_nested_query(parsed_query.merge(*args, &block))
+        uri.query_string = build_query_string(*args, &block)
       end
     end
 
     def merge!(*args, &block)
       @uri.tap do |uri|
-        uri.query_string = Rack::Utils.build_nested_query(parsed_query.merge(*args, &block))
+        uri.query_string = build_query_string(*args, &block)
       end
     end
 
@@ -30,6 +30,11 @@ module LocalUri
 
     def parsed_query
       Rack::Utils.parse_nested_query(@uri.query_string).with_indifferent_access
+    end
+
+    def build_query_string(*args, &block)
+      query_string = Rack::Utils.build_nested_query(parsed_query.merge(*args, &block))
+      query_string.empty? ? nil : query_string
     end
   end
 end
