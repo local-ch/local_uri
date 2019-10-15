@@ -4,7 +4,6 @@ require 'local_uri/version'
 Gem::Specification.new do |s|
   s.metadata['allowed_push_host'] = 'https://gem.fury.io/localsearch'
 
-
   s.name        = 'local_uri'
   s.version     = LocalUri::VERSION
   s.authors     = ['https://github.com/local-ch/local_uri/graphs/contributors']
