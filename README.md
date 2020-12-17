@@ -71,6 +71,18 @@ uri.query.merge(booking: { people: 2 }).to_s # https://booking-widget.local.ch/e
 ```ruby
 
 uri = URI('https://local.ch?id=1&place[name]=casa')
-uri[:id] # '1'
-uri.dig(:place, :name) # 'casa'
+uri.query[:id] # '1'
+uri.query.dig(:place, :name) # 'casa'
 ```
+
+#### Remove parts of a query
+
+```ruby
+uri = URI('https://local.ch?one=1&two=2&three=3')
+uri.query.except(:two, :three).to_s # https://local.ch?one=1
+```
+
+`except(keys)` - Returns a uri which query includes everything except given keys.
+
+`except!(keys)` - Removes the given keys from the query of the original uri and returns the uri itself.
+
