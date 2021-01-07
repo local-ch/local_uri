@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -eux
-
-export PATH=~/.rubies/$RUBY/bin:$PATH
-
-if [ ! -f ~/.rubies/$RUBY/bin/bundle ]; then
-  gem install bundler
-fi
-bundle install
